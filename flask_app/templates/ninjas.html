@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Ninjas</title>
+</head>
+
+<body>
+    <div class="container-sm">
+        <h1>New Ninja</h1>
+        <div class="card bg-danger-subtle"><br>
+            <form action="/ninjas/create" method="post" class="form">
+                <div class="mb-3">
+                    <label for="dojo">Dojo:</label>
+                    <select name="dojo_id" id="dojo">
+                        {% for this_dojo in all_dojos %}
+                        <option value="{{ this_dojo.id }}"> {{ this_dojo.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class = "mb-3">
+                    <label for="fname">First Name:</label>
+                    <input type="text" name="first_name" id="fname">
+                </div>
+
+                <div class = "mb-3">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" name="last_name" id="lname">
+                </div>
+
+                <div class = "mb-3">
+                    <label for="age">Age:</label>
+                    <input type="text" name="age" id="age">
+                </div>
+
+                <div class = "mb-3">
+                    <input type="submit" value="Create" class="btn-btn">
+                </div>
+            </form>
+        </div>
+        <div><a href="/dojos">HOME</a></div>
+    </div>
+</body>
+
+</html>

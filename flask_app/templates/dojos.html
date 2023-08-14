@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Dojos</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col bg-danger-subtle card">
+                <h1>New Dojo</h1>
+                <div class="form">
+                    <form action="/dojos/create" method="post" clas="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name"><br><br>
+                        <input type="submit" value="Create" class="btn-btn">
+                    </form>
+                </div>
+            </div>
+            <div class="col bg-danger-subtle border card">
+                <h1>All Dojos</h1>
+                <div class="dojo-list">
+                        {% for this_dojo in all_dojos %}
+                        <a href="/dojos/{{ this_dojo.id }}" class="a text text-decoration-none"> {{this_dojo.name}}</a><br>
+                        {% endfor %}
+                </div><br>
+                <a href="/ninjas">Add Ninja</a>
+            </div>
+        </div>
+        <div>
+            <form action="/dojos/enterdate" method ="post">
+                <label for="rdate">Birthday:</label>
+                <input type="date" id="rdate" name="rdate">
+                <input type="submit">
+            </form>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
